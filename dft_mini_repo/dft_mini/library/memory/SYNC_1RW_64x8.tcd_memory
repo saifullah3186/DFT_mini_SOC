@@ -1,0 +1,28 @@
+// Tessent memory description (TCD) for SYNC_1RW_64x8.
+// Core name must equal the RAM module name; Port names must equal the RAM pins.
+Core(SYNC_1RW_64x8) {
+  Memory {
+    MemoryType    : sram;
+    Algorithm     : SMarchCHKBci;
+    OperationSet  : sync;
+    LogicalPorts  : 1RW;
+    NumberOfWords : 64;
+    NumberOfBits  : 8;
+
+    Port(CLK)    { Function : Clock; }
+    Port(CE)     { Function : Select; }
+    Port(WE)     { Function : WriteEnable; }
+    Port(A[5:0]) { Function : Address; }
+    Port(D[7:0]) { Function : Data; Direction : Input; }
+    Port(Q[7:0]) { Function : Data; Direction : Output; }
+
+    AddressCounter {
+      Function(address) {
+        LogicalAddressMap {
+          ColumnAddress[1:0] : Address[1:0];
+          RowAddress[3:0]    : Address[5:2];
+        }
+      }
+    }
+  }
+}

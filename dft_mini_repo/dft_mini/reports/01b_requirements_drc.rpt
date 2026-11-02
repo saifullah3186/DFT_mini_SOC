@@ -1,0 +1,35 @@
+//  command: set_design_level physical_block
+//  command: set_dft_specification_requirements -memory_test on
+//  command: add_clocks 0 clk -period 10ns
+//  command: check_design_rules 
+//  ---------------------------------------------------------------------------
+//  Begin RTL synthesis.
+//  --------------------
+//  Synthesized modules=1, Time=8.22 sec.
+//  Note: There was 1 module selectively synthesized. There were also 5 sub-modules created by synthesis.
+//        Use 'get_module -filter is_synthesized' to see them.
+//        You can also use 'set_quick_synthesis_options -verbose on' to have the synthesis step report the
+//        synthesized module name in the transcript as it is being synthesized.
+//  ---------------------------------------------------------------------------
+//  Flattening process completed, cell instances=180, gates=375, PIs=11, POs=10, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.00 sec.
+//  command: report_clocks 
+User-defined Clock (1):
+=========================
+
+  Sync and Async Source Clock
+  ============================
+   -----  ---------  ------------  --------  ---------  
+   Name   Off State   Constraints  Internal    Period   
+   -----  ---------  ------------  --------  ---------  
+   'clk'      -      Asynchronous     No     10.00ns    
+
+//  command: safe_run report_dft_control_points
+//  sub-command: report_dft_control_points 
+//  There are no defined dft control points.
+//  command: # ---- 1c. create + validate the DftSpecification (nothing inserted yet) ------
+//  command: rpt 01c_dft_spec
+//  sub-command: set_logfile_handling reports/01c_dft_spec.rpt -replace 

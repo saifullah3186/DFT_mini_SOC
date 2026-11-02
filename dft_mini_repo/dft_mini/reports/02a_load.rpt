@@ -1,0 +1,65 @@
+//  command: set_context dft -rtl -design_id rtl2
+//  command: set_tsdb_output_directory ./tsdb
+//  command: if {[info exists ::env(TCELLLIB)]} { read_cell_library $::env(TCELLLIB) }
+//  command: read_design mini_soc -design_id rtl1
+//  command: set_current_design mini_soc
+//  ---------------------------------------------------------------------------
+//  Begin ICL elaboration and checking.
+//  -----------------------------------
+//  ICL elaboration completed, CPU time=0.07 sec.
+//  ---------------------------------------------------------------------------
+//  command: report_memory_instances 
+//  command: safe_run report_ijtag_instances
+//  sub-command: report_ijtag_instances 
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_mbist_bap_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 5
+// data_out_port_count                             : 19
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_mbist_c1_controller_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 16
+// data_out_port_count                             : 3
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_sib_mbist_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 0
+// data_out_port_count                             : 0
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_sib_sti_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 7
+// data_out_port_count                             : 3
+//
+// ijtag instance: 'u_ram'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 0
+// data_in_port_count                              : 6
+// data_out_port_count                             : 0
+//
+// ijtag instance: 'u_ram_interface_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 6
+// data_out_port_count                             : 6
+//  command: # ---- 2b. DFT signals + requirements + DRC -----------------------------------
+//  command: # New ports (scan_enable, test_clk_in) are created because they do not exist.
+//  command: rpt 02b_dft_signals_drc
+//  sub-command: set_logfile_handling reports/02b_dft_signals_drc.rpt -replace 

@@ -1,0 +1,60 @@
+//  command: set spec [create_dft_specification -sri_sib_list occ]
+//  sub-command: create_dft_specification -sri_sib_list occ 
+//  
+//  Begin creation of DftSpecification(mini_soc,rtl2)
+//    Creation of RtlCells wrapper
+//    Creation of IjtagNetwork wrapper
+//  
+//  Done  creation of DftSpecification(mini_soc,rtl2)
+//  
+//  command: read_config_data -in $spec -from_string {
+  OCC {
+    ijtag_host_interface : Sib(occ);
+  }
+}
+//  command: set occ [add_config_element OCC/Controller(clk_occ) -in $spec]
+//  sub-command: add_config_element OCC/Controller(clk_occ) -in /DftSpecification(mini_soc,rtl2) 
+//  command: set_config_value clock_intercept_node -in $occ clk
+//  command: report_config_data $spec
+
+DftSpecification(mini_soc,rtl2) {
+  IjtagNetwork {
+    HostScanInterface(sti_client) {
+      Interface {
+        design_instance : mini_soc_rtl1_tessent_sib_sti_inst;
+        scan_interface : client;
+      }
+      Sib(sri) {
+        Attributes {
+          tessent_dft_function : scan_resource_instrument_host;
+        }
+        Sib(sri_ctrl) {
+          Tdr(sri_ctrl) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_dft_control;
+            }
+          }
+        }
+        Sib(occ) {
+        }
+      }
+    }
+  }
+  OCC {
+    ijtag_host_interface : Sib(occ);
+    Controller(clk_occ) {
+      clock_intercept_nodes : clk;
+    }
+  }
+}
+//  command: process_dft_specification -validate_only
+//  
+//  Begin validation of /DftSpecification(mini_soc,rtl2)
+//    Validation of IjtagNetwork
+//    Validation of OCC
+//  
+//  Done  validation of DftSpecification(mini_soc,rtl2)
+//  
+//  command: # ---- 2d. insert OCC, extract ICL, write synthesis import script -------------
+//  command: rpt 02d_insert
+//  sub-command: set_logfile_handling reports/02d_insert.rpt -replace 

@@ -1,0 +1,66 @@
+//  command: add_dft_signals ltest_en -create_with_tdr
+//  command: add_dft_signals scan_en -source_nodes scan_enable
+//  command: add_dft_signals shift_capture_clock -source_nodes test_clk_in
+//  command: add_dft_signals memory_bypass_en -create_with_tdr
+//  command: add_dft_signals tck_occ_en -create_with_tdr
+//  command: report_dft_signals 
+
+// Existing and to be created DFT signals
+// ======================================
+// -------------------  -------------  ----------  --------------  -----------
+// Name                 Status         Origin      Type            Location
+// -------------------  -------------  ----------  --------------  -----------
+// ltest_en             To be created  User added  IJTAG register
+// memory_bypass_en     To be created  User added  IJTAG register
+// scan_en              To be created  User added  Port            scan_enable
+// shift_capture_clock  To be created  User added  Port            test_clk_in
+// tck_occ_en           To be created  User added  IJTAG register
+//
+//  command: set_dft_specification_requirements -logic_test on
+//  command: # clk is already defined: read_design carries it over from rtl1
+//  command: check_design_rules 
+//  ---------------------------------------------------------------------------
+//  Begin RTL synthesis.
+//  --------------------
+//  Synthesized modules=22, Time=6.81 sec.
+//  ---------------------------------------------------------------------------
+//  Flattening process completed, cell instances=6213, gates=10416, PIs=18+1(pseudo port), POs=11, CPU time=0.07 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.02 sec.
+//  Begin simulation of auto-generated load_unload procedure.
+//  Simulation of load_unload procedure completed, CPU time=0.0 sec.
+//  Scan segment = /mini_soc_rtl1_tessent_sib_sti_inst/ltest_so successfully traced with scan_cells = 7.
+//  7 scan cells have been identified in 1 scan segment.
+//  Warning: 1 edge-triggered clock ports set to stable high. (D7)
+//  command: report_clocks 
+User-defined Clocks (3):
+=========================
+
+  Sync and Async Source Clocks
+  ============================
+   ----------------------------------------------  ---------  ------------  --------  ---------  ----------------------------------------------
+   Name                                            Off State   Constraints  Internal    Period   Pin(s)                                        
+   ----------------------------------------------  ---------  ------------  --------  ---------  ----------------------------------------------
+   'clk'                                               -      Asynchronous     No     10.00ns                                                  
+   'inferred_dft_shift_capture_clock_to_connect1'      0                       Yes               'mini_soc_rtl1_tessent_sib_sti_inst/ltest_clk'
+   'ijtag_tck'                                         0                       No                                                              
+
+//  command: safe_run report_dft_control_points
+//  sub-command: report_dft_control_points 
+
+// DFT control points
+// ==================
+// --------------------------------------------------------  -------------------  -------------------  --------
+// Node                                                      Type                 Control source name  Origin
+// --------------------------------------------------------  -------------------  -------------------  --------
+// 'mini_soc_rtl1_tessent_sib_sti_inst/ltest_en'             static_dft_control   ltest_en             Inferred
+// 'mini_soc_rtl1_tessent_sib_sti_inst/ltest_clk'            dynamic_dft_control  shift_capture_clock  Inferred
+// 'mini_soc_rtl1_tessent_sib_sti_inst/ltest_scan_en'        dynamic_dft_control  scan_en              Inferred
+// 'mini_soc_rtl1_tessent_sib_sti_inst/ltest_mem_bypass_en'  static_dft_control   memory_bypass_en     Inferred
+// 'mini_soc_rtl1_tessent_sib_sti_inst/ltest_occ_en'         static_dft_control   tck_occ_en           Inferred
+//
+//  command: # ---- 2c. DftSpecification with one OCC on 'clk' ------------------------------
+//  command: rpt 02c_dft_spec
+//  sub-command: set_logfile_handling reports/02c_dft_spec.rpt -replace 

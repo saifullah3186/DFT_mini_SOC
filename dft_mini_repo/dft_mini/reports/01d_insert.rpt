@@ -1,0 +1,184 @@
+//  command: process_dft_specification 
+//  
+//  Begin processing of /DftSpecification(mini_soc,rtl1)
+//    --- IP generation phase ---
+//    Validation of IjtagNetwork
+//    Validation of MemoryBist
+//    Processing of RtlCells
+//      Generating Verilog RTL Cells
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_and2.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_or2.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_buf.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_buf.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_inv.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_inv.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_mux2.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_mux2.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_gate_and.v
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_posedge_synchronizer_reset.v
+//
+//      Loading the generated RTL verilog files (4) to enable instantiating the contained modules
+//      into the design.
+//
+//      Loading the generated structural verilog files (6) to enable instantiating the contained modules
+//      into the design.
+//    Processing of IjtagNetwork
+//      Generating design files for IJTAG SIB module mini_soc_rtl1_tessent_sib_1
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.v
+//        IJTAG ICL   : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.icl
+//        TCD Scan    : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.tcd_scan
+//        CTL         : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.ctl
+//        TCD         : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.tcd
+//        PDL         : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.pdl
+//      Generating design files for IJTAG SIB module mini_soc_rtl1_tessent_sib_2
+//        Verilog RTL : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_2.v
+//        IJTAG ICL   : ./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_2.icl
+//
+//      Loading the generated RTL verilog files (2) to enable instantiating the contained modules
+//      into the design.
+//    Processing of MemoryBist
+//      Generating the IJTAG ICL for the memories.
+//      Generating design files for MemoryBist Controller(c1)
+//  Warning: There are warnings issued while generating design files for MemoryBist controller(s).
+//           Review the messages in the following generation log files:
+//           ./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1.generation_log
+//      Generating design files for Bist Access Port
+//
+//      Loading the generated RTL verilog files (3) to enable instantiating the contained modules
+//      into the design.
+//      Generating design files for MemoryBist controller assembly
+//    --- Instrument insertion phase ---
+//   Inserting instruments of type 'ijtag'
+//   Inserting instruments of type 'memory_bist'
+//  
+//    Writing out modified source design in ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design
+//    Writing out specification in ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_spec
+//  
+//  Done  processing of DftSpecification(mini_soc,rtl1)
+//  
+//  command: extract_icl 
+//  Note: Updating the hierarchical data model to reflect RTL design changes.
+//  Writing design source dictionary : ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.design_source_dictionary
+//  ---------------------------------------------------------------------------
+//  Begin RTL synthesis.
+//  --------------------
+//  Synthesized modules=1, Time=3.40 sec.
+//  Note: There was 1 module selectively synthesized. There were also 5 sub-modules created by synthesis.
+//        Use 'get_module -filter is_synthesized' to see them.
+//        You can also use 'set_quick_synthesis_options -verbose on' to have the synthesis step report the
+//        synthesized module name in the transcript as it is being synthesized.
+//  ---------------------------------------------------------------------------
+//  Warning: Rule FN1 violation occurs 1138 times
+//  Warning: Rule FP13 violation occurs 14 times
+//  Flattening process completed, cell instances=180, gates=588, PIs=18, POs=11, CPU time=0.01 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin ICL extraction.
+//  ---------------------
+//  ICL extraction completed, ICL instances=6, CPU time=0.08 sec.
+//  ---------------------------------------------------------------------------
+//  ---------------------------------------------------------------------------
+//  Begin ICL elaboration and checking.
+//  -----------------------------------
+//  ICL elaboration completed, CPU time=0.06 sec.
+//  ---------------------------------------------------------------------------
+//  Writing ICL file : ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.icl
+//  Writing consolidated PDL file: ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.pdl
+//  Extracting SDC...
+//  Writing SDC file: ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.sdc
+//  Writing DFT info dictionary: ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.dft_info_dictionary
+//  Writing IJTAG graybox files in directory: ./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/ijtag_graybox
+//  command: safe_run report_ijtag_instances
+//  sub-command: report_ijtag_instances 
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_mbist_bap_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 5
+// data_out_port_count                             : 19
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_mbist_c1_controller_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 16
+// data_out_port_count                             : 3
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_sib_mbist_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 0
+// data_out_port_count                             : 0
+//
+// ijtag instance: 'mini_soc_rtl1_tessent_sib_sti_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 7
+// data_out_port_count                             : 3
+//
+// ijtag instance: 'u_ram'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 0
+// data_in_port_count                              : 6
+// data_out_port_count                             : 0
+//
+// ijtag instance: 'u_ram_interface_inst'
+// --------------------------------------------------------------------------------
+// use_in_dft_specification                        : off
+// connect_data_signals_already_connected_to_ports : auto
+// scan_interface_count                            : 1
+// data_in_port_count                              : 6
+// data_out_port_count                             : 6
+//  command: safe_run report_icl_modules
+//  sub-command: report_icl_modules 
+//          SYNC_1RW_64x8
+//          mini_soc_rtl1_tessent_mbist_bap
+//          mini_soc_rtl1_tessent_mbist_c1_controller
+//          mini_soc_rtl1_tessent_mbist_c1_interface_m1
+//          mini_soc_rtl1_tessent_sib_1
+//          mini_soc_rtl1_tessent_sib_2
+//          mini_soc                                     (current iProcsForModule ICL module)
+//  command: safe_run {puts [exec find ./tsdb -type f -name "*.v" -o -type f -name "*.icl" -o -type f -name "*.pdl"]}
+./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/modified_rtl_files/mini_soc.v
+./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.icl
+./tsdb/dft_inserted_designs/mini_soc_rtl1.dft_inserted_design/mini_soc.pdl
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_and2.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_or2.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_buf.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_buf.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_inv.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_inv.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_mux2.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_mux2.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_clk_gate_and.v
+./tsdb/instruments/mini_soc_rtl1_cells.instrument/mini_soc_rtl1_tessent_posedge_synchronizer_reset.v
+./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.v
+./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.icl
+./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_1.pdl
+./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_2.v
+./tsdb/instruments/mini_soc_rtl1_ijtag.instrument/mini_soc_rtl1_tessent_sib_2.icl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/SYNC_1RW_64x8.icl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_controller.v
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_interface_m1.v
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_interface_m1.icl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_controller.icl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_controller.pdl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_bap.v
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_bap.icl
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_controller_assembly.v
+./tsdb/instruments/mini_soc_rtl1_mbist.instrument/mini_soc_rtl1_tessent_mbist_c1_controller_assembly.icl
+//  command: # ---- 1e. patterns (MBIST + IJTAG access) and optional simulation ------------
+//  command: rpt 01e_patterns
+//  sub-command: set_logfile_handling reports/01e_patterns.rpt -replace 

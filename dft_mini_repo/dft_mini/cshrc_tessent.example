@@ -1,0 +1,9 @@
+# Copy to cshrc_tessent, fill in for your site, then:  source cshrc_tessent
+# (cshrc_tessent is gitignored so site-specific details never get committed.)
+setenv LM_LICENSE_FILE   <port>@<license-server>
+setenv MGLS_LICENSE_FILE <port>@<license-server>
+setenv MGC_HOME          /path/to/Tessent2022.4
+setenv Tessent_HOME      $MGC_HOME
+setenv Tessent_LIB       $Tessent_HOME/lib
+setenv Tessent_DOC_PATH  $MGC_HOME/tessent_2022_4_doc
+set path = ($MGC_HOME/bin $path)

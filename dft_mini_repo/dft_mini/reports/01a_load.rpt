@@ -1,0 +1,58 @@
+//  command: set_context dft -rtl -design_id rtl1
+//  command: set_tsdb_output_directory ./tsdb
+//  command: if {[info exists ::env(TCELLLIB)]} { read_cell_library $::env(TCELLLIB) }
+//  command: set_design_sources -format tcd_memory -y ./library/memory -extension tcd_memory
+//  command: set_design_sources -format verilog -v ./library/memory/SYNC_1RW_64x8.v
+//  command: read_verilog ./rtl/mini_soc.v
+//  command: set_current_design mini_soc
+//  command: report_design_sources 
+// Search design load path settings
+// ================================
+//  format              value
+//  ------------------  -----
+//  icl                 on   
+//  tcd_bscan           on   
+//  tcd_scan            on   
+//  tcd_fusebox         on   
+//  tcd_memory          on   
+//  tcd_memory_cluster  on   
+//
+// File and directory search path
+// ==============================
+//  format              type  path                              file extensions                           
+//  ------------------  ----  --------------------------------  ------------------------------------------
+//  verilog             file  ./library/memory/SYNC_1RW_64x8.v                                            
+//  icl                 dir                                     icl icl.gz                                
+//  tcd_bscan           dir                                     tcd_bscan lvbscan tcd_bscan.gz lvbscan.gz 
+//  tcd_scan            dir                                     tcd_scan tcd_scan.gz                      
+//  tcd_fusebox         dir                                     tcd_fbox tcd_fbox.gz                      
+//  tcd_memory          dir   ./library/memory                  tcd_memory tcd_memory.gz                  
+//  tcd_memory_cluster  dir                                     tcd_mem_cluster_lib tcd_mem_cluster_lib.gz
+//  command: report_config_data -partition tcd -levels 1
+
+// Tessent memory description (TCD) for SYNC_1RW_64x8.
+// Core name must equal the RAM module name; Port names must equal the RAM pins.
+Core(SYNC_1RW_64x8) {
+  tessent_tool_version : 2022.4;
+  tessent_meta_version : 10;
+  Memory {
+    // Not shown
+  }
+}
+//  command: report_memory_instances 
+//
+// Memory Instance: 'u_ram'
+// ----------------------------------------------
+// bist_data_in_pipelining              : auto
+// physical_cluster_override            : 
+// memory_content_after_test            : 
+// power_domain_island                  : 
+// test_clock_override                  : 
+// use_in_memory_bist_dft_specification : auto
+// use_in_memory_bisr_dft_specification : auto
+// parent_cluster_module                : 
+// partitioning_group                   : 
+// repair_sharing                       : auto
+//  command: # ---- 1b. DFT requirements + design rule check -------------------------------
+//  command: rpt 01b_requirements_drc
+//  sub-command: set_logfile_handling reports/01b_requirements_drc.rpt -replace 

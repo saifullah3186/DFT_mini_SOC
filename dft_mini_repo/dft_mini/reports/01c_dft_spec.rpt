@@ -1,0 +1,48 @@
+//  command: set spec [create_dft_specification]
+//  sub-command: create_dft_specification 
+//  
+//  Begin creation of DftSpecification(mini_soc,rtl1)
+//    Creation of RtlCells wrapper
+//    Creation of IjtagNetwork wrapper
+//    Creation of MemoryBist wrapper
+//    Creation of MemoryBisr wrapper
+//  
+//  Done  creation of DftSpecification(mini_soc,rtl1)
+//  
+//  command: report_config_data $spec
+
+DftSpecification(mini_soc,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(ijtag) {
+      Sib(sti) {
+        Attributes {
+          tessent_dft_function : scan_tested_instrument_host;
+        }
+        Sib(mbist) {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_ram;
+        }
+      }
+    }
+  }
+}
+//  command: process_dft_specification -validate_only
+//  
+//  Begin validation of /DftSpecification(mini_soc,rtl1)
+//    Validation of IjtagNetwork
+//    Validation of MemoryBist
+//  
+//  Done  validation of DftSpecification(mini_soc,rtl1)
+//  
+//  command: # ---- 1d. insert MBIST hardware, build IJTAG network, extract ICL ------------
+//  command: rpt 01d_insert
+//  sub-command: set_logfile_handling reports/01d_insert.rpt -replace 
